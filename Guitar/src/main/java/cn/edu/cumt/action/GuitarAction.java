@@ -48,8 +48,8 @@ public class GuitarAction extends ActionSupport {
 		inventory.setGuitars(guitarService.getAll());
 		
 		GuitarSpec whatErinLikes = 
-			      new GuitarSpec(Builder.FENDER, "Stratocastor", 
-		                     Type.ELECTRIC, 6, Wood.ALDER, Wood.ALDER);
+			      new GuitarSpec(builder, model, 
+		                     type, numStrings, backWood, topWood);
 		
 		matchingGuitars = inventory.search(whatErinLikes);
 		
@@ -66,7 +66,7 @@ public class GuitarAction extends ActionSupport {
 			ja.add(jo);
 		}
 		jsonObject.put("data", ja);
-		jsonObject.put("total", matchingGuitars.size());
+		jsonObject.put("recordsTotal", matchingGuitars.size());
 		return SUCCESS;
 	}
 	
