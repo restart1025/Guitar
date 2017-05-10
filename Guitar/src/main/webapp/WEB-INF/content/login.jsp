@@ -40,7 +40,7 @@
 						numStrings : $('#numStrings').val().toString()
 				   };
 				   var params = $.param(dataParams);
-				   console.log(params);
+				   //console.log(params);
 				   
 				   $.post('${pageContext.request.contextPath}/queryAction_search', dataParams, function(rec){
 					   var _html = "<br><table border='1' cellpadding='10'><thead><tr>" + 
@@ -52,7 +52,7 @@
 							                "<th>TopWood</th>" + 
 							                "<th>Price</th>" + 
 							        "</tr></thead>";
-					   if( rec.recordsTotal > 0 ){
+					   if( rec.data.length > 0 ){
 						   var data = rec.data;
 						   for( var i in data ){
 							   _html = _html + 

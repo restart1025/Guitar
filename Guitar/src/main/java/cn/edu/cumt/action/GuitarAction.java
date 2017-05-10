@@ -50,8 +50,16 @@ public class GuitarAction extends ActionSupport {
 		GuitarSpec whatErinLikes = 
 			      new GuitarSpec(builder, model, 
 		                     type, numStrings, backWood, topWood);
+		//≤‚ ‘”√¿˝
+//	    GuitarSpec whatErinLikes = 
+//	    	      new GuitarSpec(Builder.FENDER, "Stratocastor", 
+//	    	                     Type.ELECTRIC, 6, Wood.ALDER, Wood.ALDER);
 		
-		matchingGuitars = inventory.search(whatErinLikes);
+		if( model != null && !model.equals("") ){
+			matchingGuitars = inventory.search(whatErinLikes);
+		}else{
+			matchingGuitars = inventory.getGuitars();
+		}
 		
 		JSONArray ja = new JSONArray();
 		for( Guitar guitar : matchingGuitars ){
@@ -66,7 +74,7 @@ public class GuitarAction extends ActionSupport {
 			ja.add(jo);
 		}
 		jsonObject.put("data", ja);
-		jsonObject.put("recordsTotal", matchingGuitars.size());
+		//jsonObject.put("recordsTotal", matchingGuitars.size());
 		return SUCCESS;
 	}
 	

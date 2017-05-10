@@ -6,85 +6,107 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Find Guitar</title>
 		<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
-		
-<!-- 		<script src="//code.jquery.com/jquery-1.12.4.js"></script> -->
-		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-		
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+		<script type="text/javascript" language="javascript" src="//code.jquery.com/jquery-1.12.4.js">
+		</script>
+		<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js">
+		</script>
 		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
-		
 		<style type="text/css">
-			table tr td {
+			form table tr td {
 				padding:5px;
 			}
-			table tr thead {
+			form table tr thead {
 				padding:5px;
 			}
 		</style>
-		
 		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#example').dataTable( {
+				  //"ajax": "${pageContext.request.contextPath}/queryAction_search",
+					"ajax": {
+					    "url": "${pageContext.request.contextPath}/queryAction_search",
+					    "type": "POST",
+					    "data": function ( d ) {
+					    	d.builder = $('#builder').val(),
+					    	d.model = $('#model').val(),
+					    	d.type = $('#type').val(),
+					    	d.backWood = $('#backWood').val(),
+					    	d.topWood = $('#topWood').val(),
+					    	d.numStrings = $('#numStrings').val().toString()
+					    }
+					},
+				  	"deferRender": true,
+				  	"searching": true,
+			        "columns": [
+	                    { "data": "builder", align:"center" },
+	                    { "data": "model" },
+	                    { "data": "type" },
+	                    { "data": "numStrings" },
+	                    { "data": "backWood" },
+	                    { "data": "topWood" },
+	                    { "data": "price" }
+	                ],
+			        "oLanguage": {
+			            "sLengthMenu": "每页显示 _MENU_ 条",
+			            "sZeroRecords": "没有找到符合条件的数据",
+			            "sInfo": "当前第 _START_ - _END_ 条　共计 _TOTAL_ 条",
+			            "sInfoEmpty": "没有记录",
+			            "sInfoFiltered": "(从 _MAX_ 条记录中过滤)",
+			            "sSearch": "搜索",
+			            "sProcessing": "数据加载中...",
+			            "oPaginate": {
+			                "sFirst": "首页",
+			                "sPrevious": "上一页",
+			                "sNext": "下一页",
+			                "sLast": "尾页"
+			            }
+			        }
+				});
+			} );
+		
 			$(function(){
 				
 				$("#btn").click(function(){
 					//alert("Submitted");
-					var dataParams = {
-						builder : $('#builder').val(),
-						model : $('#model').val(),
-						type : $('#type').val(),
-						backWood : $('#backWood').val(),
-						topWood : $('#topWood').val(),
-						numStrings : $('#numStrings').val().toString()
-				   };
-				   var params = $.param(dataParams);
-				   //console.log(params);
-				   
-				   $.post('${pageContext.request.contextPath}/queryAction_search', dataParams, function(rec){
-					   var _html = "<br><table border='1' cellpadding='10'><thead><tr>" + 
-							                "<th>Builder</th>" + 
-							                "<th>Model</th>" + 
-							                "<th>Type</th>" + 
-							                "<th>NumStrings</th>" + 
-							                "<th>BackWood</th>" + 
-							                "<th>TopWood</th>" + 
-							                "<th>Price</th>" + 
-							        "</tr></thead>";
-					   if( rec.data.length > 0 ){
-						   var data = rec.data;
-						   for( var i in data ){
-							   _html = _html + 
-							   			"<tr>" + 
-								        	"<td>" + data[i].builder + "</td>" + 
-								            "<td>" + data[i].model + "</td>" + 
-								            "<td>" + data[i].type + "</td>" + 
-								            "<td>" + data[i].numStrings + "</td>" + 
-								            "<td>" + data[i].backWood + "</td>" + 
-									        "<td>" + data[i].topWood + "</td>" + 
-								            "<td>" + data[i].price + "</td>" + 
-								        "</tr>";
-						   }
-								        
-					   }
-					   _html = _html + "</table>";
-					   $('#tableId')["0"].innerHTML = _html;
-				   }, "json");
+					var table = $('#example').DataTable();
+					table.ajax.reload();
+					 
+// 					var dataParams = {
+// 						builder : $('#builder').val(),
+// 						model : $('#model').val(),
+// 						type : $('#type').val(),
+// 						backWood : $('#backWood').val(),
+// 						topWood : $('#topWood').val(),
+// 						numStrings : $('#numStrings').val().toString()
+// 				   };
+					
+					//第二种
+// 					var params = $.param(dataParams);
+// 					var url = '${pageContext.request.contextPath}/queryAction_search?'+ params;
+					
+// 					var table = $('#example').DataTable();
+					
+// 					table.ajax.url( url ).load();
+					
+					//第三种
+// 					var table2 = $('#example').dataTable();
+// 					var oSettings = table2.fnSettings();
+// 					$.post('${pageContext.request.contextPath}/queryAction_search', dataParams, function(json)
+// 					{
+// 				    	table2.oApi._fnClearTable(oSettings);
+// 					    for (var i=0; i<json.data.length; i++)
+// 					    {
+// 					        table2.oApi._fnAddData(oSettings, json.data[i]);
+// 					    }
+// 					    oSettings.aiDisplay = oSettings.aiDisplayMaster.slice();
+// 					    table2.fnDraw();
+// 					},"json");
 				   
 				});
-// 					$('#example').DataTable( {
-// 				        "ajax" : '${pageContext.request.contextPath}/queryAction_search',
-// 				        "columns": [
-// 				            { "data": "Builder" },
-// 				            { "data": "Model" },
-// 				            { "data": "Type" },
-// 				            { "data": "NumStrings" },
-// 				            { "data": "BackWood" },
-// 				            { "data": "TopWood" },
-// 				            { "data": "Price" }
-// 				        ]
-// 				    } );
 				
 			});
 	    </script>
@@ -171,23 +193,33 @@
 		    </form>
 		    <br>
 		        <button id="btn" class="btn btn-default">提交</button>
-		    <br>
-		    <div id="tableId">
-		    	
-		    </div>
-<!-- 			<table id="example" class="display" cellspacing="0" width="100%"> -->
-<!-- 		        <thead> -->
-<!-- 		            <tr> -->
-<!-- 		                <th>Builder</th> -->
-<!-- 		                <th>Model</th> -->
-<!-- 		                <th>Type</th> -->
-<!-- 		                <th>NumStrings</th> -->
-<!-- 		                <th>BackWood</th> -->
-<!-- 		                <th>TopWood</th> -->
-<!-- 		            </tr> -->
-<!-- 		        </thead> -->
-<!-- 		    </table> -->
+		    <br><br><br>
+			<table id="example" class="display" cellspacing="0" width="100%">
+		        <thead>
+		            <tr>
+		                <th>Builder</th>
+		                <th>Model</th>
+		                <th>Type</th>
+		                <th>NumStrings</th>
+		                <th>BackWood</th>
+		                <th>TopWood</th>
+		                <th>Price</th>
+		            </tr>
+		        </thead>
+		        <tfoot>
+		            <tr>
+		                <th>Builder</th>
+		                <th>Model</th>
+		                <th>Type</th>
+		                <th>NumStrings</th>
+		                <th>BackWood</th>
+		                <th>TopWood</th>
+		                <th>Price</th>
+		            </tr>
+		        </tfoot>
+		    </table>
 		</div>
+
 		
 		
 </body>
