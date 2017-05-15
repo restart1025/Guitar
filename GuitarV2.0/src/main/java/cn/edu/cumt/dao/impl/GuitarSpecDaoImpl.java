@@ -23,10 +23,11 @@ public class GuitarSpecDaoImpl implements GuitarSpecDao {
 	@Override
 	public GuitarSpec queryGuitarSpec(GuitarSpec guitarSpec) {
 		GuitarSpec gSpec = null;
-		ResultSet rs = DbUtil.executeQuery("SELECT * FROM GUITARSPEC WHERE serialNumber=? AND builder = ?"
+		ResultSet rs = DbUtil.executeQuery("SELECT * FROM GUITARSPEC WHERE builder = ?"
 						+ " AND model = ? AND type = ? AND numStrings = ? AND backWood = ? AND topWood = ?", 
-						new Object[]{guitarSpec.getSerialNumber(), guitarSpec.getBuilder().toString(), guitarSpec.getModel().toString(), 
-								guitarSpec.getType().toString(), guitarSpec.getNumStrings(), guitarSpec.getBackWood().toString(),
+						new Object[]{guitarSpec.getBuilder().toString(),
+								guitarSpec.getModel().toString(), guitarSpec.getType().toString(), 
+								guitarSpec.getNumStrings(), guitarSpec.getBackWood().toString(),
 								guitarSpec.getTopWood().toString()});
 		try{
 			while(rs.next()){
