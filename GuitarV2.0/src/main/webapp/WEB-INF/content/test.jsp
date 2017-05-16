@@ -29,7 +29,7 @@
 			<div class="row clearfix">
 				<div class="col-md-6 column">
 					<a href="#">
-			            <img src="http://a.hiphotos.baidu.com/baike/w%3D268%3Bg%3D0/sign=83e136cb3b12b31bc76cca2fbe235147/9c16fdfaaf51f3de44e313e896eef01f3b2979ed.jpg"
+			            <img src="http://f.hiphotos.baidu.com/baike/w%3D268%3Bg%3D0/sign=08ce846ad5c8a786be2a4d085f32ae00/730e0cf3d7ca7bcb2797e3bfba096b63f724a8b5.jpg"
 			             class="img-responsive img-thumbnail" alt="中国矿业大学管理学院" width="20%" height="20%"> 
 			        </a>
 				</div>
@@ -306,7 +306,7 @@
 							
 							<div class="row clearfix">
 								<div class="col-md-12 column">
-							       	<br>中国矿业大学管理学院<br><br>
+							       	<br>往期回顾<br><br>
 								</div>
 							</div>
 					    	<div class="row clearfix">
@@ -394,10 +394,10 @@
 					    	<div class="row clearfix">
 								<div class="col-md-12 column">
 							       	<ul class="list-group">
-									    <li class="list-group-item">通讯</li>
-									    <li class="list-group-item">通讯</li>
-									    <li class="list-group-item">通讯</li>
-									    <li class="list-group-item">通讯</li>
+									    <li class="list-group-item">捐赠</li>
+									    <li class="list-group-item">捐赠</li>
+									    <li class="list-group-item">捐赠</li>
+									    <li class="list-group-item">捐赠</li>
 									</ul>
 								</div>
 							</div>
@@ -413,7 +413,7 @@
 					<div class="panel panel-default">
 					    <div class="panel-heading">
 					        <h3 class="panel-title">
-					           	校友捐赠
+					           	友情链接
 					        </h3>
 					    </div>
 					    <div class="panel-body">
@@ -421,10 +421,10 @@
 					    	<div class="row clearfix">
 								<div class="col-md-12 column">
 							       	<ul class="list-group">
-									    <li class="list-group-item">通讯</li>
-									    <li class="list-group-item">通讯</li>
-									    <li class="list-group-item">通讯</li>
-									    <li class="list-group-item">通讯</li>
+									    <li class="list-group-item">友情链接</li>
+									    <li class="list-group-item">友情链接</li>
+									    <li class="list-group-item">友情链接</li>
+									    <li class="list-group-item">友情链接</li>
 									</ul>
 								</div>
 							</div>
