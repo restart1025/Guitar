@@ -1,3 +1,10 @@
+﻿# Duck 策略模式
+## 测试界面截图
+![测试界面截图](DuckTest.png)
+
+## PowerDesigner类图
+![PowerDesigner类图](Duck.png)
+
 # Guitar test
 ## 测试界面截图
 ![测试界面截图](testGuitar.png)
