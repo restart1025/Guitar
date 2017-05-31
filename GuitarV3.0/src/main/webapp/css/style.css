@@ -1,0 +1,24 @@
+@charset "utf-8";
+/* DIVCSS5-CSS初始化模板-www.divcss5.com */
+/* body, div,  ul,  li{margin:0; padding:0;font-style: normal;font:12px/22px "\5B8B\4F53",Arial, Helvetica, sans-serif} */
+/* \5B8B\4F53 代表 宋体，更多中文字体转 Unicode http://www.divcss5.com/jiqiao/j325.shtml */
+ol, ul ,li{list-style:none}
+img {border: 0; vertical-align:middle}
+/* body{color:#000000;background:#FFF; text-align:center} */
+.clear{clear:both;height:1px;width:100%; overflow:hidden; margin-top:-1px}
+a{color:#000000;text-decoration:none} 
+a:hover{color:#BA2636;text-decoration:underline}
+
+#mrq{width:925px; margin:20px auto;border:1px solid #000; padding:2px}
+#Marquee_x { overflow:hidden; width: 100% } 
+#Marquee_x ul li ,#Marquee_x ul li div{ float:left;line-height:25px;overflow:hidden} /* 横向滚动必须让所有li左浮动 */
+#Marquee_x ul li div{ float:left;line-height:25px;height:131px; width:142px; overflow:hidden}
+#Marquee_x ul li div img{ border:1px solid #DADADA; width:140px; height:105px; display:block}
+#Marquee_x ul li div span{ display:block; text-align:center}
+
+
+
+#n{margin:10px auto; width:920px; border:1px solid #CCC;font-size:12px; line-height:30px;}
+#n a{ padding:0 4px; color:#333}
+
+
