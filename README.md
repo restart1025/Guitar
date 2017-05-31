@@ -28,7 +28,6 @@
 ![PowerDesigner类图](Image/Duck/Duck.png)
 
 # GuitarV2.0
-# Guitar test
 ## 测试界面截图
 ![测试界面截图](Image/testGuitar.png)
 
