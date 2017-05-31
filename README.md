@@ -36,6 +36,5 @@
 ![运行界面截图](Image/boundaryV2.0.png)
 
 # GuitarV1.0
-# Guitar v1.3
 ## 运行界面截图
 ![运行界面截图](Image/boundaryV1.0.png)
